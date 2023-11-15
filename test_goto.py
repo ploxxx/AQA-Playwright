@@ -1,22 +1,19 @@
 import pytest
+import allure
+import time
 from playwright.sync_api import Playwright, sync_playwright, expect
 
-def test_add_todo(playwright: Playwright) -> None:
-    browser = playwright.chromium.launch(headless=False)
-    context = browser.new_context()
-    page = context.new_page()
+def test_add_todo(page):
     page.goto("https://playwright-todomvc.antonzimaiev.repl.co/#/")
     expect(page).to_have_url("arertwewetwetwe")
     page.get_by_placeholder("What needs to be done?").click()
     page.get_by_placeholder("What needs to be done?").fill("Создать первый сценарий playwright")
     page.get_by_placeholder("What needs to be done?").press("Enter")
 
-def test_israelcart(playwright: Playwright) -> None:
-    browser = playwright.chromium.launch(headless=False)
-    context = browser.new_context()
-    page = context.new_page()
+def test_israelcart(page):
     page.goto("https://uat.israelcart.com/")
     page.get_by_label("Close dialog 1").click()
+    page.mouse.move(0,1000)
     page.locator(".label").first.click()
     page.locator(".product_wrap > div:nth-child(2)").first.click()
     page.get_by_role("link", name="Continue to Checkout").click()
@@ -44,10 +41,7 @@ def test_israelcart(playwright: Playwright) -> None:
 
 
 # Мониторинг сетевых запросов
-def test_listen_network(playwright: Playwright) -> None:
-    browser = playwright.chromium.launch(headless=False)
-    context = browser.new_context()
-    page = context.new_page()
+def test_listen_network(page):
     page.on("request", lambda request: print(">>", request.method, request.url))
     page.on("response", lambda response: print("<<", response.status, response.url))
     page.goto('https://osinit.ru/')
