@@ -1,26 +1,21 @@
 import pytest
 import allure
 import time
+from pages.base_page import BasePage
+from pages.main_page import MainPage 
+from pages.checkout_page import CheckoutPage
+from pages.global_variables import GlobalVariables
+from pages.locators import MainPageLocators
 from playwright.sync_api import Page, Playwright, sync_playwright, expect
 
-
+@allure.title("Полный флоу юзера на израелькарте")
 def test_israelcart(page: Page):
-    page.goto("https://uat.israelcart.com/")
-    page.get_by_label("Close dialog 1").click()
-    page.locator(".featured_products__inner").scroll_into_view_if_needed()
-    page.locator(".label").first.click()
-    page.locator(".product_wrap > div:nth-child(2)").first.click()
-    page.get_by_role("link", name="Continue to Checkout").click()
-    page.get_by_role("button", name="Log In").click()
-    page.locator("form").filter(has_text="Email address Password Show Remember me Lost your password? Sign In Don’t have a").locator("#username").click()
-    page.locator("form").filter(has_text="Email address Password Show Remember me Lost your password? Sign In Don’t have a").locator("#username").click()
-    page.locator("form").filter(has_text="Email address Password Show Remember me Lost your password? Sign In Don’t have a").locator("#username").fill("vladz@levhaolam.com")
-    page.locator("form").filter(has_text="Email address Password Show Remember me Lost your password? Sign In Don’t have a").locator("#password").click()
-    page.locator("form").filter(has_text="Email address Password Show Remember me Lost your password? Sign In Don’t have a").locator("#password").fill("Vld5444789")
-    page.get_by_role("button", name="Sign In").click()
-    page.locator("label").filter(has_text="I agree to the website terms and conditions and privacy policy *").locator("div").first.click()
-    page.get_by_role("button", name="Continue to Shipping").click()
-    page.get_by_role("button", name="Continue anyway").click()
+    page.goto(GlobalVariables.LINK_IC)
+    main_page = MainPage(page)
+    main_page.add_to_cart()
+    checkout_page = CheckoutPage(page)
+    checkout_page.authorization_on_the_checkout_page()
+    checkout_page.go_to_the_delivery_selection_page()
     page.locator("label").filter(has_text="Economy: Delivery usuall $10.74").locator("div").nth(1).click()
     page.get_by_role("button", name="Continue to Payment").click()
     page.frame_locator("#bluesnap-hosted-iframe-ccn").get_by_placeholder("XXXX XXXX XXXX XXXX").click()
@@ -35,7 +30,7 @@ def test_israelcart(page: Page):
 
 
 # Мониторинг сетевых запросов
-def test_listen_network(page: Page):
-    page.on("request", lambda request: print(">>", request.method, request.url))
-    page.on("response", lambda response: print("<<", response.status, response.url))
-    page.goto('https://osinit.ru/')
+# def test_listen_network(page: Page):
+#     page.on("request", lambda request: print(">>", request.method, request.url))
+#     page.on("response", lambda response: print("<<", response.status, response.url))
+#     page.goto('https://osinit.ru/')
