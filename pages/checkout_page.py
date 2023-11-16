@@ -23,3 +23,8 @@ class CheckoutPage(BasePage):
         self.page.locator("label").filter(has_text="I agree to the website terms and conditions and privacy policy *").locator("div").first.click()
         self.page.get_by_role("button", name="Continue to Shipping").click()
         self.page.get_by_role("button", name="Continue anyway").click()
+
+    @allure.step("Выбор способа доставки")
+    def choosing_a_delivery_method(self):
+        self.page.locator("label").filter(has_text="Economy: Delivery usuall $10.74").locator("div").nth(1).click()
+        self.page.get_by_role("button", name="Continue to Payment").click()
