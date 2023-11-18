@@ -15,8 +15,11 @@ class MainPageLocators(BasePage):
 
 # class CheckoutPageLocators(BasePage):
 
+class PaymentPageLocators(BasePage):
 
-# class PaymentPage(BasePage):
+    BLUESNAP_FRAME_INPUT = "#bluesnap-hosted-iframe-ccn"
+    BLUESNAP_FRAME_DATE = "#bluesnap-hosted-iframe-exp"
+    BLUESNAP_FRAME_CVV = "#bluesnap-hosted-iframe-cvv"
 
 
 class ThankYouPageLocators(BasePage):
