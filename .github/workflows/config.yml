@@ -23,11 +23,11 @@ jobs:
       - name: Run Playwright tests
         run: pytest --alluredir=allure_results
       - name: Generate Allure report
-        run: allure generate allure_results --clean -o allure_report
+        run: allure generate allure_results --clean -o allure-report
       - uses: actions/upload-artifact@v3
         if: always()
         with:
           name: playwright-allure-report
-          path: allure_report/
+          path: allure-report
           retention-days: 30
     
