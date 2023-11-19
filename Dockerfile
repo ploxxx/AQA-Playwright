@@ -1,4 +1,4 @@
-FROM python:3.12.0a4-alpine3.17
+FROM python:latest 
 # update apk repo
 RUN echo "https://dl-4.alpinelinux.org/alpine/v3.10/main" >> /etc/apk/repositories && \
     echo "https://dl-4.alpinelinux.org/alpine/v3.10/community" >> /etc/apk/repositories
@@ -19,10 +19,15 @@ RUN apk update && \
     ln -s /opt/allure-2.13.8/bin/allure /usr/bin/allure && \
     rm allure-2.13.8.tgz
 
-WORKDIR /ploxxx/AQA-Playwright
+WORKDIR /app
 
 # Copy the dependencies file to the working directory
-COPY ./requirements.txt /ploxxx/AQA-Playwright
+COPY ./requirements.txt /app
 
 # Install Python dependencies
 RUN pip install -r requirements.txt
+
+COPY . .
+
+CMD python -m pytest -s -v "test_goto.py" --alluredir=allure-results/
+
