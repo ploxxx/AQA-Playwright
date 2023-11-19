@@ -19,11 +19,10 @@ RUN apk update && \
     ln -s /opt/allure-2.13.8/bin/allure /usr/bin/allure && \
     rm allure-2.13.8.tgz
 
-WORKDIR /usr/workspace/PythonCourse
+WORKDIR /ploxxx/AQA-Playwright
 
 # Copy the dependencies file to the working directory
-COPY ./requirements.txt /usr/workspace/PythonCourse
-
+COPY ./requirements.txt /ploxxx/AQA-Playwright
 
 # Install Python dependencies
-RUN pip3 install -r requirements.txt
+RUN pip install -r requirements.txt

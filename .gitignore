@@ -1,8 +1,9 @@
 __pycache__
-__pycache__
 #
 global_variables.py
 .pytest_cache
-.vscode
 report
+*.iml
+.env
+allure-results
 

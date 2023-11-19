@@ -7,9 +7,9 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - ./:/usr/workspace/PythonCourse
+      - ./:/ploxxx/AQA-Playwright
     command: /bin/sh -c "ls -la && pytest 'test_got.py' -sv --alluredir=allure-results"
-    working_dir: /usr/workspace/PythonCourse
+    working_dir: /ploxxx/AQA-Playwright
     # environment:
     #   - LOGIN=${LOGIN}
     #   - PASSWORD=${PASSWORD}
