@@ -5,5 +5,4 @@ report
 *.iml
 .env
 node_modules
-allure-report
 
