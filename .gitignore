@@ -1,6 +1,5 @@
 __pycache__
 #
-global_variables.py
 .pytest_cache
 report
 *.iml
