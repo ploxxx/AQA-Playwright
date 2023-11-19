@@ -6,4 +6,4 @@ services:
     volumes:
       - ./:/usr/src/app
     working_dir: /usr/src/app
-    command: bash -c "pip install -r requirements.txt && pytest"
+    command: bash -c "pip install -r requirements.txt && pytest && allure-pytest"

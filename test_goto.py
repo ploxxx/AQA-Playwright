@@ -1,5 +1,5 @@
 import pytest
-import allure
+# import allure
 import time
 from pages.base_page import BasePage
 from pages.payment_page import PaymentPage
