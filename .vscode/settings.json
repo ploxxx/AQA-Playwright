@@ -1,7 +1,0 @@
-{
-    "python.testing.pytestArgs": [
-        "Lesson 2 (input_print data)"
-    ],
-    "python.testing.unittestEnabled": false,
-    "python.testing.pytestEnabled": true
-}
