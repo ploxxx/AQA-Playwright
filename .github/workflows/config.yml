@@ -24,7 +24,7 @@ jobs:
         run: pytest --alluredir=allure_results
       - name: Generate Allure report
         run: |
-          docker run -p 5050:5050 -e CHECK_RESULTS_EVERY_SECONDS=3 -e -v $(pwd)/allure-results:/app/allure_results frankescobar/allure-docker-service
+          docker run -p 5050:5050 -e -v $(pwd)/allure-results:/app/allure_results frankescobar/allure-docker-service
       - uses: actions/upload-artifact@v3
         if: always()
         with:
