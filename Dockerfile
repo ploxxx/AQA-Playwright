@@ -27,7 +27,4 @@ COPY ./requirements.txt /app
 # Install Python dependencies
 RUN pip install -r requirements.txt
 
-COPY . .
-
-CMD python -m pytest -s -v "test_goto.py" --alluredir=allure-results/
 
