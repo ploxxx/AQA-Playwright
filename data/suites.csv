@@ -1,2 +1,2 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Tue Nov 21 14:00:54 GMT 2023","Tue Nov 21 14:00:57 GMT 2023","3094","","test_goto","","","","Мониторинг сетевых запросов",""
+"passed","Tue Nov 21 18:16:04 GMT 2023","Tue Nov 21 18:16:06 GMT 2023","1987","","test_goto","","","","Мониторинг сетевых запросов",""
