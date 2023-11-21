@@ -11,7 +11,7 @@ class PaymentPage(BasePage):
     @allure.step("Оплата через Bluesnap")
     def payment_via_bluesnap(self):
         self.page.frame_locator(PaymentPageLocators.BLUESNAP_FRAME_INPUT).locator("#ccn").click()
-        self.page.frame_locator(PaymentPageLocators.BLUESNAP_FRAME_INPUT).get_by_placeholder("XXXX XXXX XXXX XXXX").fill("4557430402053423 ")
+        self.page.frame_locator(PaymentPageLocators.BLUESNAP_FRAME_INPUT).locator("#ccn").fill("4557430402053423 ")
         self.page.frame_locator(PaymentPageLocators.BLUESNAP_FRAME_DATE).locator("#exp").click()
         self.page.frame_locator(PaymentPageLocators.BLUESNAP_FRAME_DATE).locator("#exp").fill("12 / 25")
         self.page.frame_locator(PaymentPageLocators.BLUESNAP_FRAME_CVV).locator("#cvv").click()
