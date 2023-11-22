@@ -1,1 +1,1 @@
-[{"uid":"407e6e42c992368c","name":"Мониторинг сетевых запросов","time":{"start":1700590564479,"stop":1700590566466,"duration":1987},"status":"passed","severity":"normal"}]
+[{"uid":"4eb59be30483ac7d","name":"Мониторинг сетевых запросов","time":{"start":1700662238923,"stop":1700662241193,"duration":2270},"status":"passed","severity":"normal"},{"uid":"1fbd8639a8c6cb0e","name":"Полный флоу юзера на израелькарте","time":{"start":1700662206084,"stop":1700662238492,"duration":32408},"status":"passed","severity":"normal"}]
