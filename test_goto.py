@@ -20,9 +20,9 @@ def test_israelcart(page: Page):
     checkout_page.go_to_the_delivery_selection_page()
     checkout_page.choosing_a_delivery_method()
     payment_page = PaymentPage(page)
-    payment_page.make_screenshot("test")
     payment_page.payment_via_bluesnap()
     payment_page.check_for_successful_payment()
+    payment_page.make_screenshot("Success")
 
 
 @allure.title("Мониторинг сетевых запросов")
